@@ -23,6 +23,24 @@
     ./hardware-configuration.nix
   ];
 
+  ########## NVIDIA Configuration ##########
+
+  hardware.graphics = {
+  	enable = true;
+  	enable32Bit = true;
+  };
+
+  services.xserver.videoDrivers = ["nvidia"];
+
+  hardware.nvidia = {
+  	modesetting.enable = true;
+  	open = false;
+  	nvidiaSettings = true;
+  	package = config.boot.kernelPackages.nvidiaPackages.production;
+  };
+
+  ###########################################
+
   nixpkgs = {
     # You can add overlays here
     overlays = [
@@ -139,7 +157,7 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
-	google-chrome
+    google-chrome
 	micro
 	zed-editor
 	kitty
