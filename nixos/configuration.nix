@@ -169,6 +169,7 @@
 	git
 	telegram-desktop
 	wget
+	claude-code
   ];
 
   environment.shellAliases = {
