@@ -41,6 +41,14 @@
 
   ###########################################
 
+
+  ########## Bluetooth ##########
+
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+
+  ###############################
+
   nixpkgs = {
     # You can add overlays here
     overlays = [
