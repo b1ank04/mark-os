@@ -7,6 +7,9 @@
 
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    lanzaboote.url = "github:nix-community/lanzaboote/v0.4.2";
+    lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -37,6 +40,7 @@
         modules = [
           ./nixos/configuration.nix
           home-manager.nixosModules.home-manager
+          lanzaboote.nixosModules.lanzaboote
         ];
       };
     };

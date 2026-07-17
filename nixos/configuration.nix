@@ -1,4 +1,9 @@
-{inputs, ...}: {
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
     ./hardware.nix
@@ -33,8 +38,15 @@
     channel.enable = false;
   };
 
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.enable = lib.mkForce false;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  boot.lanzaboote = {
+    enable = true;
+    pkiBundle = "/var/lib/sbctl";
+  };
+
+  environment.systemPackages = [pkgs.sbctl];
 
   system.stateVersion = "25.11";
 }
