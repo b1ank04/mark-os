@@ -58,5 +58,5 @@
     fd
   ];
 
-  home.stateVersion = "25.11";
+  home.stateVersion = "26.05";
 }
