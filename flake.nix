@@ -32,7 +32,7 @@
     homeManagerModules = import ./modules/home-manager;
 
     nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
+      mark-os = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
           ./nixos/configuration.nix

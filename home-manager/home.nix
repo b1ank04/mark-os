@@ -25,9 +25,33 @@
     enableZshIntegration = true;
   };
 
+  programs.git = {
+    enable = true;
+    settings = {
+      user.name = "Mark Shmarov";
+      user.email = "shmarov.mark@gmail.com";
+      init.defaultBranch = "main";
+      pull.rebase = true;
+    };
+  };
+
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+  };
+
   home.packages = with pkgs; [
+    google-chrome
+    micro
+    zed-editor
+    telegram-desktop
     zoxide
-    fzf
     ripgrep
     fd
   ];
