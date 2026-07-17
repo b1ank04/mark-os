@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(hyprctl configerrors *)",
+      "Bash(hyprctl dispatch *)",
+      "WebFetch(domain:discuss.cachyos.org)",
+      "WebFetch(domain:github.com)",
+      "Bash(nix eval *)",
+      "Bash(nix search *)",
+      "Bash(curl -sL -o ~/.config/hypr/wallpaper.png \"https://raw.githubusercontent.com/orangci/walls-catppuccin-mocha/main/dark-waves.jpg\")",
+      "Read(//home/marks/.config/hypr/**)"
+    ]
+  }
+}

@@ -1,15 +1,16 @@
 {pkgs, ...}: {
   programs.hyprland.enable = true;
 
-  services.greetd = {
+  services.displayManager.sddm = {
     enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --cmd Hyprland";
-        user = "greeter";
-      };
-    };
+    wayland.enable = true;
+    theme = "catppuccin-sddm-corners";
+    package = pkgs.kdePackages.sddm;
   };
+
+  environment.systemPackages = with pkgs; [
+    catppuccin-sddm-corners
+  ];
 
   xdg.portal = {
     enable = true;
