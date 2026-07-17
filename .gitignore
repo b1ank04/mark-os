@@ -1,0 +1,8 @@
+# nix build artifacts
+result
+result-*
+
+# editor / IDE
+.idea/
+.vscode/
+.direnv/
