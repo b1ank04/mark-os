@@ -16,6 +16,7 @@
     self,
     nixpkgs,
     home-manager,
+    lanzaboote,
     ...
   } @ inputs: let
     systems = [
