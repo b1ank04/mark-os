@@ -1,6 +1,9 @@
-{pkgs, ...}: {
-  programs.hyprland.enable = true;
+{...}: {
+  services.xserver.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
+<<<<<<< HEAD
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
@@ -15,6 +18,11 @@
   xdg.portal = {
     enable = true;
     extraPortals = [pkgs.xdg-desktop-portal-hyprland];
+=======
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "";
+>>>>>>> parent of e4c6a43 (setup hyprland)
   };
 
   services.printing.enable = true;

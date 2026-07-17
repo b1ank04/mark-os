@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   programs.home-manager.enable = true;
 
+<<<<<<< HEAD
   xdg.configFile."hypr/hyprland.conf" = {
     text = ''
       monitor = ,preferred,auto,1
@@ -394,6 +395,8 @@
     };
   };
 
+=======
+>>>>>>> parent of e4c6a43 (setup hyprland)
   programs.kitty = {
     enable = true;
     settings = {
@@ -529,6 +532,7 @@
     zoxide
     ripgrep
     fd
+<<<<<<< HEAD
 
     # hyprland essentials
     grim
@@ -552,6 +556,8 @@
     qt6Packages.qtstyleplugin-kvantum
     qt6Packages.qt6ct
     nerd-fonts.jetbrains-mono
+=======
+>>>>>>> parent of e4c6a43 (setup hyprland)
   ];
 
   home.stateVersion = "26.05";
