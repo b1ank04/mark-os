@@ -1,11 +1,19 @@
-{...}: {
-  services.xserver.enable = true;
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+{pkgs, ...}: {
+  programs.hyprland.enable = true;
 
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --cmd Hyprland";
+        user = "greeter";
+      };
+    };
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [pkgs.xdg-desktop-portal-hyprland];
   };
 
   services.printing.enable = true;

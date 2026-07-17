@@ -4,9 +4,7 @@
     description = "Mark Shmarov";
     extraGroups = ["networkmanager" "wheel"];
     shell = pkgs.zsh;
-    packages = with pkgs; [
-      kdePackages.kate
-    ];
+    packages = [];
   };
   users.mutableUsers = true;
 
