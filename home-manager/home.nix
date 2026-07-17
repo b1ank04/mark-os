@@ -51,7 +51,7 @@
     micro
     zed-editor
     telegram-desktop
-    jetbrains.idea-ultimate
+    jetbrains.idea
     jetbrains.goland
     zoxide
     ripgrep
