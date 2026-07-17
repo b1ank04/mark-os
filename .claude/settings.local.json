@@ -9,7 +9,9 @@
       "Bash(nix search *)",
       "Bash(curl -sL -o ~/.config/hypr/wallpaper.png \"https://raw.githubusercontent.com/orangci/walls-catppuccin-mocha/main/dark-waves.jpg\")",
       "Read(//home/marks/.config/hypr/**)",
-      "WebFetch(domain:wiki.hyprland.org)"
+      "WebFetch(domain:wiki.hyprland.org)",
+      "Bash(nix build *)",
+      "Bash(read p *)"
     ]
   }
 }

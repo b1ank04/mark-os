@@ -37,9 +37,9 @@
       ];
 
       env = [
-        "XCURSOR_THEME,catppuccin-mocha-dark-cursors"
+        "XCURSOR_THEME,Bibata-Modern-Ice"
         "XCURSOR_SIZE,24"
-        "GTK_THEME,catppuccin-mocha-blue-standard+default"
+        "GTK_THEME,Tokyonight-Dark"
         "QT_QPA_PLATFORMTHEME,qt6ct"
       ];
 
@@ -47,8 +47,9 @@
         gaps_in = 5;
         gaps_out = 10;
         border_size = 2;
-        "col.active_border" = "rgba(89b4faee) rgba(cba6f7ee) 45deg";
-        "col.inactive_border" = "rgba(45475aaa)";
+        # Tokyo Night Storm: blue -> cyan accent gradient
+        "col.active_border" = "rgba(7aa2f7ee) rgba(7dcfffee) 45deg";
+        "col.inactive_border" = "rgba(414868aa)";
         layout = "dwindle";
       };
 
@@ -180,8 +181,8 @@
     enable = true;
     settings = {
       splash = false;
-      preload = ["${config.home.homeDirectory}/.config/hypr/wallpaper.jpg"];
-      wallpaper = [",${config.home.homeDirectory}/.config/hypr/wallpaper.jpg"];
+      preload = ["${pkgs.tokyonight-wallpaper}"];
+      wallpaper = [",${pkgs.tokyonight-wallpaper}"];
     };
   };
 
@@ -196,7 +197,7 @@
       background = [
         {
           monitor = "";
-          path = "${config.home.homeDirectory}/.config/hypr/wallpaper.jpg";
+          path = "${pkgs.tokyonight-wallpaper}";
           blur_passes = 3;
           blur_size = 8;
         }
@@ -209,9 +210,9 @@
           outline_thickness = 2;
           dots_size = 0.25;
           dots_spacing = 0.3;
-          outer_color = "rgb(89b4fa)";
-          inner_color = "rgb(1e1e2e)";
-          font_color = "rgb(cdd6f4)";
+          outer_color = "rgb(7aa2f7)";
+          inner_color = "rgb(1f2335)";
+          font_color = "rgb(c0caf5)";
           fade_on_empty = true;
           placeholder_text = "<i>Password...</i>";
           halign = "center";
@@ -223,7 +224,7 @@
         {
           monitor = "";
           text = "$TIME";
-          color = "rgb(cdd6f4)";
+          color = "rgb(c0caf5)";
           font_size = 64;
           font_family = "JetBrainsMono Nerd Font";
           position = "0, 150";
@@ -233,7 +234,7 @@
         {
           monitor = "";
           text = "Hi, Mark";
-          color = "rgb(89b4fa)";
+          color = "rgb(7aa2f7)";
           font_size = 20;
           font_family = "JetBrainsMono Nerd Font";
           position = "0, 75";
@@ -271,16 +272,16 @@
     enable = true;
     package = pkgs.rofi;
     terminal = "kitty";
-    theme = "catppuccin-mocha";
+    theme = "tokyonight-storm";
   };
 
-  xdg.dataFile."rofi/themes/catppuccin-mocha.rasi".text = ''
+  xdg.dataFile."rofi/themes/tokyonight-storm.rasi".text = ''
     * {
-      bg: #1e1e2e;
-      bg-alt: #313244;
-      fg: #cdd6f4;
-      accent: #89b4fa;
-      urgent: #f38ba8;
+      bg: #24283b;
+      bg-alt: #292e42;
+      fg: #c0caf5;
+      accent: #7aa2f7;
+      urgent: #f7768e;
 
       background-color: @bg;
       text-color: @fg;
@@ -311,7 +312,7 @@
     entry {
       background-color: inherit;
       placeholder: "Search...";
-      placeholder-color: #6c7086;
+      placeholder-color: #565f89;
     }
 
     listview {
@@ -405,24 +406,24 @@
       }
 
       window#waybar {
-        background-color: rgba(30, 30, 46, 0.85);
-        color: #cdd6f4;
-        border-bottom: 2px solid rgba(137, 180, 250, 0.3);
+        background-color: rgba(36, 40, 59, 0.85);
+        color: #c0caf5;
+        border-bottom: 2px solid rgba(122, 162, 247, 0.3);
       }
 
       #workspaces button {
         padding: 0 8px;
-        color: #6c7086;
+        color: #565f89;
         border-bottom: 2px solid transparent;
       }
 
       #workspaces button.active {
-        color: #89b4fa;
-        border-bottom: 2px solid #89b4fa;
+        color: #7aa2f7;
+        border-bottom: 2px solid #7aa2f7;
       }
 
       #language {
-        color: #a6e3a1;
+        color: #7dcfff;
       }
 
       #clock, #cpu, #memory, #pulseaudio, #network, #language, #tray {
@@ -440,13 +441,13 @@
         offset = "10x10";
         origin = "top-right";
         transparency = 10;
-        frame_color = "#89b4fa";
+        frame_color = "#7aa2f7";
         font = "JetBrainsMono Nerd Font 10";
         corner_radius = 10;
       };
       urgency_normal = {
-        background = "#1e1e2e";
-        foreground = "#cdd6f4";
+        background = "#1f2335";
+        foreground = "#c0caf5";
         timeout = 5;
       };
     };
@@ -458,36 +459,37 @@
       font_family = "JetBrainsMono Nerd Font";
       font_size = "12";
       background_opacity = "0.9";
-      foreground = "#CDD6F4";
-      background = "#1E1E2E";
-      selection_foreground = "#1E1E2E";
-      selection_background = "#F5E0DC";
-      cursor = "#F5E0DC";
-      cursor_text_color = "#1E1E2E";
-      url_color = "#89B4FA";
-      active_tab_foreground = "#11111B";
-      active_tab_background = "#CBA6F7";
-      inactive_tab_foreground = "#CDD6F4";
-      inactive_tab_background = "#181825";
-      active_border_color = "#B4BEFE";
-      inactive_border_color = "#6C7086";
-      bell_border_color = "#F9E2AF";
-      color0 = "#45475A";
-      color1 = "#F38BA8";
-      color2 = "#A6E3A1";
-      color3 = "#F9E2AF";
-      color4 = "#89B4FA";
-      color5 = "#F5C2E7";
-      color6 = "#94E2D5";
-      color7 = "#BAC2DE";
-      color8 = "#585B70";
-      color9 = "#F38BA8";
-      color10 = "#A6E3A1";
-      color11 = "#F9E2AF";
-      color12 = "#89B4FA";
-      color13 = "#F5C2E7";
-      color14 = "#94E2D5";
-      color15 = "#A6ADC8";
+      # Tokyo Night Storm (folke/tokyonight)
+      foreground = "#c0caf5";
+      background = "#24283b";
+      selection_foreground = "#c0caf5";
+      selection_background = "#2e3c64";
+      cursor = "#c0caf5";
+      cursor_text_color = "#24283b";
+      url_color = "#73daca";
+      active_tab_foreground = "#1f2335";
+      active_tab_background = "#7aa2f7";
+      inactive_tab_foreground = "#545c7e";
+      inactive_tab_background = "#292e42";
+      active_border_color = "#7aa2f7";
+      inactive_border_color = "#292e42";
+      bell_border_color = "#e0af68";
+      color0 = "#1d202f";
+      color1 = "#f7768e";
+      color2 = "#9ece6a";
+      color3 = "#e0af68";
+      color4 = "#7aa2f7";
+      color5 = "#bb9af7";
+      color6 = "#7dcfff";
+      color7 = "#a9b1d6";
+      color8 = "#414868";
+      color9 = "#f7768e";
+      color10 = "#9ece6a";
+      color11 = "#e0af68";
+      color12 = "#7aa2f7";
+      color13 = "#bb9af7";
+      color14 = "#7dcfff";
+      color15 = "#c0caf5";
     };
   };
 
@@ -520,9 +522,9 @@
     enable = true;
     enableZshIntegration = true;
     defaultOptions = [
-      "--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8"
-      "--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc"
-      "--color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+      "--color=bg+:#292e42,bg:#24283b,spinner:#bb9af7,hl:#7aa2f7"
+      "--color=fg:#c0caf5,header:#7aa2f7,info:#7dcfff,pointer:#bb9af7"
+      "--color=marker:#9ece6a,fg+:#c0caf5,prompt:#7dcfff,hl+:#7aa2f7"
     ];
   };
 
@@ -535,19 +537,16 @@
   gtk = {
     enable = true;
     theme = {
-      name = "catppuccin-mocha-blue-standard+default";
-      package = pkgs.catppuccin-gtk.override {
-        accents = ["blue"];
-        variant = "mocha";
-      };
+      name = "Tokyonight-Dark";
+      package = pkgs.tokyonight-gtk-theme;
     };
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
     };
     cursorTheme = {
-      name = "catppuccin-mocha-dark-cursors";
-      package = pkgs.catppuccin-cursors.mochaDark;
+      name = "Bibata-Modern-Ice";
+      package = pkgs.bibata-cursors;
       size = 24;
     };
     font = {
@@ -557,24 +556,41 @@
   };
 
   home.pointerCursor = {
-    name = "catppuccin-mocha-dark-cursors";
-    package = pkgs.catppuccin-cursors.mochaDark;
+    name = "Bibata-Modern-Ice";
+    package = pkgs.bibata-cursors;
     size = 24;
     gtk.enable = true;
   };
 
+  # No Tokyo Night Kvantum theme exists in nixpkgs 26.05, so instead of
+  # vendoring an out-of-tree Kvantum theme we drive Qt's built-in Fusion
+  # style from a custom qt6ct palette. Zero external deps, cannot rot.
   qt = {
     enable = true;
     platformTheme.name = "qt6ct";
-    style.name = "kvantum";
+    style.name = "Fusion";
+    qt6ctSettings = {
+      Appearance = {
+        style = "Fusion";
+        icon_theme = "Papirus-Dark";
+        standard_dialogs = "default";
+        custom_palette = true;
+        color_scheme_path = "${config.xdg.configHome}/qt6ct/colors/TokyoNightStorm.conf";
+      };
+    };
   };
 
-  xdg.configFile."Kvantum/kvantum.kvconfig".text = ''
-    [General]
-    theme=catppuccin-mocha-blue
+  # qt6ct custom palette (Tokyo Night Storm). 21 QPalette roles per group,
+  # order: WindowText, Button, Light, Midlight, Dark, Mid, Text, BrightText,
+  # ButtonText, Base, Window, Shadow, Highlight, HighlightedText, Link,
+  # LinkVisited, AlternateBase, NoRole, ToolTipBase, ToolTipText,
+  # PlaceholderText. Colors are #AARRGGBB.
+  xdg.configFile."qt6ct/colors/TokyoNightStorm.conf".text = ''
+    [ColorScheme]
+    active_colors=#ffc0caf5, #ff24283b, #ff414868, #ff3b4261, #ff16161e, #ff292e42, #ffc0caf5, #ffffffff, #ffc0caf5, #ff1f2335, #ff24283b, #ff000000, #ff7aa2f7, #ff1f2335, #ff7dcfff, #ffbb9af7, #ff292e42, #ffc0caf5, #ff1f2335, #ffc0caf5, #80565f89
+    disabled_colors=#ff565f89, #ff24283b, #ff414868, #ff3b4261, #ff16161e, #ff292e42, #ff565f89, #ffffffff, #ff565f89, #ff1f2335, #ff24283b, #ff000000, #ff292e42, #ff565f89, #ff7dcfff, #ffbb9af7, #ff292e42, #ff565f89, #ff1f2335, #ffc0caf5, #80565f89
+    inactive_colors=#ffc0caf5, #ff24283b, #ff414868, #ff3b4261, #ff16161e, #ff292e42, #ffc0caf5, #ffffffff, #ffc0caf5, #ff1f2335, #ff24283b, #ff000000, #ff7aa2f7, #ff1f2335, #ff7dcfff, #ffbb9af7, #ff292e42, #ffc0caf5, #ff1f2335, #ffc0caf5, #80565f89
   '';
-
-  xdg.configFile."Kvantum/catppuccin-mocha-blue".source = "${pkgs.catppuccin-kvantum}/share/Kvantum/catppuccin-mocha-blue";
 
   home.packages = with pkgs; [
     google-chrome
@@ -597,13 +613,11 @@
     brightnessctl
     networkmanagerapplet
 
-    # theming & settings
+    # theming & settings (Tokyo Night Storm)
     nwg-look
-    catppuccin-gtk
+    tokyonight-gtk-theme
     papirus-icon-theme
-    catppuccin-cursors.mochaDark
-    catppuccin-kvantum
-    qt6Packages.qtstyleplugin-kvantum
+    bibata-cursors
     qt6Packages.qt6ct
     nerd-fonts.jetbrains-mono
   ];
