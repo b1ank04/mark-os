@@ -7,6 +7,10 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
+    # home-manager >= 26.05 defaults configType to the new experimental "lua"
+    # backend (writes hyprland.lua). Its variable rendering is broken and no
+    # community configs use it — pin the classic hyprlang hyprland.conf.
+    configType = "hyprlang";
     # Hyprland itself and its portal are provided by the NixOS module
     # (programs.hyprland). Leaving these null keeps versions in sync and
     # avoids installing a second, mismatched compositor.
