@@ -103,9 +103,10 @@
         "$mod, Space, exec, $menu"
         "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
         "$mod, F, togglefloating"
-        "$mod, S, togglesplit"
+        "$mod, S, layoutmsg, togglesplit"
         "$mod SHIFT, F, fullscreen"
         "$mod, L, exec, hyprlock"
+        "$mod SHIFT, R, exec, hyprctl reload"
 
         # Move focus (arrows + vim h/j/k/l)
         "$mod, left, movefocus, l"
@@ -167,8 +168,10 @@
         "$mod, mouse:273, resizewindow"
       ];
 
+      # Hyprland 0.55 "windowrule v3" syntax: effects are `effect value`,
+      # matchers are `match:<prop> <value>` (space-separated, not `prop:value`).
       windowrule = [
-        "suppressevent maximize, class:.*"
+        "suppress_event maximize, match:class .*"
       ];
     };
   };
