@@ -11,7 +11,14 @@
       "Read(//home/marks/.config/hypr/**)",
       "WebFetch(domain:wiki.hyprland.org)",
       "Bash(nix build *)",
-      "Bash(read p *)"
+      "Bash(read p *)",
+      "Bash(lsusb *)",
+      "Bash(dmesg)",
+      "Bash(journalctl -k -b)",
+      "Bash(hyprctl devices *)",
+      "Bash(udevadm info *)",
+      "Bash(getfacl -p /dev/input/event7)",
+      "Bash(getfacl -p /dev/input/event5)"
     ]
   }
 }

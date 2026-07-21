@@ -7,18 +7,17 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    # home-manager >= 26.05 defaults configType to the new experimental "lua"
-    # backend (writes hyprland.lua). Its variable rendering is broken and no
-    # community configs use it — pin the classic hyprlang hyprland.conf.
     configType = "hyprlang";
-    # Hyprland itself and its portal are provided by the NixOS module
-    # (programs.hyprland). Leaving these null keeps versions in sync and
-    # avoids installing a second, mismatched compositor.
     package = null;
     portalPackage = null;
 
     settings = {
-      monitor = ",preferred,auto,1";
+      monitor = [
+        # NAME,RESOLUTION@REFRESH,POSITION,SCALE
+        "HDMI-A-1,1920x1080@200,0x0,1"    # MSI MAG 255F - main, left
+        "DP-1,1920x1080@144,1920x0,1"     # LG 24GL600F  - secondary, right
+        ",preferred,auto,1"               # fallback for any other display
+      ];
 
       "$mod" = "SUPER";
       "$terminal" = "kitty";
@@ -105,7 +104,7 @@
         "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
         "$mod, F, togglefloating"
         "$mod, S, layoutmsg, togglesplit"
-        "$mod SHIFT, F, fullscreen"
+        "$mod SHIFT, enter, fullscreen"
         "$mod, L, exec, hyprlock"
         "$mod SHIFT, R, exec, hyprctl reload"
 
@@ -114,20 +113,20 @@
         "$mod, right, movefocus, r"
         "$mod, up, movefocus, u"
         "$mod, down, movefocus, d"
-        "$mod, h, movefocus, l"
-        "$mod, j, movefocus, d"
-        "$mod, k, movefocus, u"
-        "$mod, l, movefocus, r"
+        "$mod, a, movefocus, l"
+        "$mod, s, movefocus, d"
+        "$mod, w, movefocus, u"
+        "$mod, d, movefocus, r"
 
         # Move window (arrows + vim h/j/k/l)
         "$mod SHIFT, left, movewindow, l"
         "$mod SHIFT, right, movewindow, r"
         "$mod SHIFT, up, movewindow, u"
         "$mod SHIFT, down, movewindow, d"
-        "$mod SHIFT, h, movewindow, l"
-        "$mod SHIFT, j, movewindow, d"
-        "$mod SHIFT, k, movewindow, u"
-        "$mod SHIFT, l, movewindow, r"
+        "$mod SHIFT, a, movewindow, l"
+        "$mod SHIFT, s, movewindow, d"
+        "$mod SHIFT, w, movewindow, u"
+        "$mod SHIFT, d, movewindow, r"
 
         # Workspaces
         "$mod, 1, workspace, 1"
@@ -259,11 +258,9 @@
           timeout = 300;
           on-timeout = "hyprlock";
         }
-        {
-          timeout = 600;
-          on-timeout = "hyprctl dispatch dpms off";
-          on-resume = "hyprctl dispatch dpms on";
-        }
+        # DPMS-off listener removed: hyprlock v0.9.5 crashes on resume when
+        # monitors are torn down/re-added (wl_display "invalid object").
+        # Monitors stay powered showing the lock screen instead of blanking.
       ];
     };
   };
