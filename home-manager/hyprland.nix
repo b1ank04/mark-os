@@ -77,7 +77,9 @@
 
       input = {
         kb_layout = "us,ru";
-        kb_options = "grp:win_shift_toggle";
+        # No grp: xkb toggle here — those fire whenever the modifier combo is
+        # held, so they clash with SUPER+SHIFT+<key> WM binds. Layout switching
+        # is handled by the modkey-only bindr below instead.
         follow_mouse = 1;
         sensitivity = 0;
       };
@@ -98,7 +100,8 @@
         "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
         "$mod, F, togglefloating"
         "$mod, S, layoutmsg, togglesplit"
-        "$mod SHIFT, enter, fullscreen"
+
+        "$mod SHIFT, Return, fullscreen"
         "$mod, L, exec, hyprlock"
         "$mod SHIFT, R, exec, hyprctl reload"
 
@@ -160,6 +163,16 @@
       bindm = [
         "$mod, mouse:272, movewindow"
         "$mod, mouse:273, resizewindow"
+      ];
+
+      # Tap SUPER+SHIFT alone to cycle keyboard layout. As a modkey-only
+      # release bind (TARGET modmask + activating key + `r` flag), Hyprland
+      # auto-suppresses it whenever SUPER+SHIFT is consumed as a prefix by
+      # another bind (e.g. SUPER+SHIFT+2 movetoworkspace) — so a clean tap
+      # switches layout while all the WM binds keep working. `all` keeps
+      # every keyboard in sync.
+      bindr = [
+        "SUPER SHIFT, Shift_L, exec, hyprctl switchxkblayout all next"
       ];
 
       # Hyprland 0.55 "windowrule v3" syntax: effects are `effect value`,
