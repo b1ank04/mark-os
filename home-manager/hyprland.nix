@@ -102,7 +102,7 @@
         "$mod, L, exec, hyprlock"
         "$mod SHIFT, R, exec, hyprctl reload"
 
-        # Move focus (arrows + vim h/j/k/l)
+        # Move focus (arrows + vim wasd)
         "$mod, left, movefocus, l"
         "$mod, right, movefocus, r"
         "$mod, up, movefocus, u"
@@ -112,7 +112,7 @@
         "$mod, w, movefocus, u"
         "$mod, d, movefocus, r"
 
-        # Move window (arrows + vim h/j/k/l)
+        # Move window (arrows + wasd)
         "$mod SHIFT, left, movewindow, l"
         "$mod SHIFT, right, movewindow, r"
         "$mod SHIFT, up, movewindow, u"
