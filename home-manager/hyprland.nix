@@ -180,6 +180,7 @@
       # matchers are `match:<prop> <value>` (space-separated, not `prop:value`).
       windowrule = [
         "suppress_event maximize, match:class .*"
+        "stay_focused on, match:class ^jetbrains-.+$, match:float 1"
       ];
     };
   };
