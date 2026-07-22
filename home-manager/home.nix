@@ -18,9 +18,12 @@
     telegram-desktop
     jetbrains.idea
     jetbrains.goland
+    jetbrains.rust-rover
     zoxide
     ripgrep
     fd
+    github-copilot-cli
+    microfetch
 
     # hyprland essentials
     grim
