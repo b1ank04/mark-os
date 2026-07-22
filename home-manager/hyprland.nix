@@ -19,14 +19,17 @@
       "$browser" = "google-chrome-stable";
       "$fileManager" = "nautilus";
 
-      # hyprpaper, hypridle and dunst run as systemd user services
-      # (services.hyprpaper / services.hypridle / services.dunst), so they
-      # are intentionally not launched here.
+      # hypridle and dunst run as systemd user services (services.hypridle /
+      # services.dunst), so they are not launched here. The wallpaper is set
+      # with swaybg (a minimal static-wallpaper tool): it just paints the
+      # image on each output as it appears, with none of hyprpaper's
+      # preload/target two-step that left the desktop black on a 4K image.
       exec-once = [
         "waybar"
         "nm-applet --indicator"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
+        "${pkgs.swaybg}/bin/swaybg -m fill -i ${pkgs.tokyonight-wallpaper}"
       ];
 
       env = [
@@ -180,15 +183,6 @@
       windowrule = [
         "suppress_event maximize, match:class .*"
       ];
-    };
-  };
-
-  services.hyprpaper = {
-    enable = true;
-    settings = {
-      splash = false;
-      preload = ["${pkgs.tokyonight-wallpaper}"];
-      wallpaper = [",${pkgs.tokyonight-wallpaper}"];
     };
   };
 

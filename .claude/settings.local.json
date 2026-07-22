@@ -18,7 +18,9 @@
       "Bash(hyprctl devices *)",
       "Bash(udevadm info *)",
       "Bash(getfacl -p /dev/input/event7)",
-      "Bash(getfacl -p /dev/input/event5)"
+      "Bash(getfacl -p /dev/input/event5)",
+      "Bash(grep -niE 'SUPER|ALT|\\\\$mod' home-manager/hyprland.nix)",
+      "WebSearch"
     ]
   }
 }
