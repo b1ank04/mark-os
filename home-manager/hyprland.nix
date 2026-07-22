@@ -80,11 +80,9 @@
 
       input = {
         kb_layout = "us,ru";
-        # No grp: xkb toggle here — those fire whenever the modifier combo is
-        # held, so they clash with SUPER+SHIFT+<key> WM binds. Layout switching
-        # is handled by the modkey-only bindr below instead.
         follow_mouse = 1;
         sensitivity = 0;
+        accel_profile = "flat";
       };
 
       misc = {
@@ -101,14 +99,14 @@
         "$mod, B, exec, $browser"
         "$mod, Space, exec, $menu"
         "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
-        "$mod, F, togglefloating"
+        "$mod, mouse:274, togglefloating"
         "$mod, S, layoutmsg, togglesplit"
 
         "$mod SHIFT, Return, fullscreen"
         "$mod, L, exec, hyprlock"
         "$mod SHIFT, R, exec, hyprctl reload"
 
-        # Move focus (arrows + vim wasd)
+        # Move focus (arrows + wasd)
         "$mod, left, movefocus, l"
         "$mod, right, movefocus, r"
         "$mod, up, movefocus, u"
